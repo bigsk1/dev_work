@@ -264,3 +264,80 @@ print(torch.cuda.is_available())
 ```
 - 12.1
 - True
+
+You can also make a python file call pytorch_test.py
+
+
+```python
+# pytorch_test.py
+import torch
+
+def test_pytorch_cuda():
+    # Check if CUDA is available
+    if torch.cuda.is_available():
+        print("CUDA is available. Testing with a simple operation.")
+
+        # Create a random tensor
+        x = torch.rand(5, 3)
+        print("Original Tensor:\n", x)
+
+        # Move the tensor to GPU
+        x = x.cuda()
+        print("Tensor on CUDA:\n", x)
+
+        # Perform a simple addition operation
+        y = x + 1
+        print("Tensor after addition:\n", y)
+
+        print("PyTorch and CUDA are working correctly!")
+    else:
+        print("CUDA is not available. Please check your installation.")
+
+if __name__ == "__main__":
+    test_pytorch_cuda()
+```
+and running the command
+
+```bash
+python3 pytorch_test.py
+```
+
+```bash
+CUDA is available. Testing with a simple operation.
+Original Tensor:
+ tensor([[0.8696, 0.6349, 0.9674],
+        [0.4257, 0.2892, 0.3230],
+        [0.9859, 0.4811, 0.2655],
+        [0.2030, 0.1596, 0.3838],
+        [0.9341, 0.3455, 0.1313]])
+Tensor on CUDA:
+ tensor([[0.8696, 0.6349, 0.9674],
+        [0.4257, 0.2892, 0.3230],
+        [0.9859, 0.4811, 0.2655],
+        [0.2030, 0.1596, 0.3838],
+        [0.9341, 0.3455, 0.1313]], device='cuda:0')
+Tensor after addition:
+ tensor([[1.8696, 1.6349, 1.9674],
+        [1.4258, 1.2892, 1.3230],
+        [1.9859, 1.4811, 1.2655],
+        [1.2030, 1.1596, 1.3838],
+        [1.9341, 1.3455, 1.1313]], device='cuda:0')
+PyTorch and CUDA are working correctly!
+```
+
+## Tensorflow
+
+[https://www.tensorflow.org/install/pip](https://www.tensorflow.org/install/pip)
+
+If needed you can install tensorflow with GPU use 
+
+```bash
+pip install tensorflow
+```
+and then check was installed correctly
+
+```bash
+python3 -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'))"
+```
+
+Also checkout the tensorflow_test.py in this repo
