@@ -19,7 +19,7 @@ Example Projects
 ---
 
 > *Note: Create a folder that we will use to map from your host computer to inside the docker container. So when you are working inside the container your work can be saved inside this mapped folder, the examples below we call it workspace*
-{: .prompt-info }
+
 
 ## Who is this for?
 
